@@ -118,3 +118,67 @@ $(document).ready(function(){
   document.onscroll = scroll;
 
 });
+
+function goTo(number){
+   console.log(number);
+   $('ul.pagination li:eq('+number+') a').tab('show');
+   //upgradePreNext(number);
+}
+/*function upgradePreNext(number){
+    console.log(number);
+   if (number>1){
+       $('ul.pagination li:eq(0)').attr("onclick","goTo("+(number-1)+")");
+       $('ul.pagination li:eq(0)').attr("class", "previous");
+   } else {
+       $('ul.pagination li:eq(0)').attr("class", "disabled");
+   }
+    if (number<2){
+       $('ul.pagination li:eq(3)').attr("onclick","goTo("+(number+1)+")");
+   } else {
+       $('ul.pagination li:eq(3)').attr("class", "disabled");
+   }
+}*/
+$(document).ready(function(){
+    $('li.list a').on('click',function(e){
+        console.log("coucou");
+        number=e.target.innerHTML;
+        goTo(number);
+        if(number > 1) {
+           $('ul.pagination li:eq(0)').attr("current",number-1);
+           $('ul.pagination li:eq(0)').attr("class", "previous");
+           $('ul.pagination li:eq(3)').attr("class", "disabled");
+        }  else {
+          $('ul.pagination li:eq(3)').attr("current",+number+1);
+          $('ul.pagination li:eq(3)').attr("class", "next");
+          $('ul.pagination li:eq(0)').attr("class", "disabled");
+        }
+  });
+
+  $('li.previous a').on('click',function(e){
+        number = $('ul.pagination li:eq(0)').attr("current");
+        if(number > 1) {
+           $('ul.pagination li:eq(0)').attr("current",number-1);
+           $('ul.pagination li:eq(0)').attr("class", "previous");
+           $('ul.pagination li:eq(3)').attr("class", "disabled");
+        }  else {
+          $('ul.pagination li:eq(3)').attr("current",+number+1);
+          $('ul.pagination li:eq(3)').attr("class", "next");
+          $('ul.pagination li:eq(0)').attr("class", "disabled");
+        }
+        goTo(number);
+  });
+
+    $('li.next a').on('click',function(e){
+        number = $('ul.pagination li:eq(3)').attr("current");
+        if(number > 1) {
+           $('ul.pagination li:eq(0)').attr("current",number-1);
+           $('ul.pagination li:eq(0)').attr("class", "previous");
+           $('ul.pagination li:eq(3)').attr("class", "disabled");
+        }  else {
+          $('ul.pagination li:eq(3)').attr("current",+number+1);
+          $('ul.pagination li:eq(3)').attr("class", "next");
+          $('ul.pagination li:eq(0)').attr("class", "disabled");
+        }
+        goTo(number);
+  });
+});

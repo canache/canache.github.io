@@ -1068,3 +1068,30 @@ $(window).load(function() {
 ga('create', 'UA-46680343-1', 'almsaeedstudio.com');
 ga('send', 'pageview');
 
+function goTo(number){
+    console.log(number);
+    console.log("goTo")
+   $('ul.pager li:eq('+number+') a').tab('show');
+   upgradePreNext(number);
+}
+function upgradePreNext(number){
+   if (number>1){
+       $('ul.pager li:eq(0)').attr("onclick","goTo("+(number-1)+")");
+       $('ul.pager li:eq(0)').attr("class", "previous");
+   } else {
+       $('ul.pager li:eq(0)').attr("class", "disabled");
+   }
+    if (number<5){
+       $('ul.pager li:eq(6)').attr("onclick","goTo("+(number+1)+")");
+       $('ul.pager li:eq(6)').attr("class", "next");
+   } else {
+       $('ul.pager li:eq(6)').attr("class", "disabled");
+   }
+}
+$(document).ready(function(){
+    $('li a').on('click',function(e){
+            console.log((e.target.innerHTML)-0);
+    console.log("document")
+        goTo((e.target.innerHTML)-0);
+  });
+});

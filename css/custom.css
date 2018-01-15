@@ -859,20 +859,20 @@ form
 
 .btn-primary {
     color: #fff;
-    background-color: #3acab1;
+    background-color: #f46749;
     border-radius: 0;
-    border-color: #3acab1;
+    border-color: #f46749 ;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
-    background-color: #16a085;
-    border-color: #16a085;
+    background-color: #e86346;
+    border-color: #e86346;
 }
 
 .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
-    background-color: #3acab1;
-    border-color: #3acab1;
+    background-color: #e86346;
+    border-color: #e86346;
 }
 
 .pagination {
@@ -901,7 +901,7 @@ form
 }
 
 .pagination>li>a, .pagination>li>span {
-    color: #16a085;
+    color: #e86346;
 }
 
 #port-items .col-md-4 {
@@ -1150,3 +1150,46 @@ form
     width:100%;
     position:absolute;
 }
+
+#starting .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  z-index: 1;
+}
+
+#starting .countdown {
+  margin-top: 50px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  font-family: 'Source Sans Pro', sans-serif;
+}
+#starting .countdown-label {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 300;
+}
+#starting .countdown-number {
+    font-family: 'Source Sans Pro', sans-serif;
+  font-size: 124px;
+  line-height: 1;
+  font-weight: 200;
+}
+@media (max-width: 991px) {
+  #starting .countdown-number {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 30px;
+  }
+}
+
+.logement p {
+    font-size:12px;
+}
+
