@@ -124,61 +124,50 @@ function goTo(number){
    $('ul.pagination li:eq('+number+') a').tab('show');
    //upgradePreNext(number);
 }
-/*function upgradePreNext(number){
-    console.log(number);
-   if (number>1){
-       $('ul.pagination li:eq(0)').attr("onclick","goTo("+(number-1)+")");
-       $('ul.pagination li:eq(0)').attr("class", "previous");
-   } else {
-       $('ul.pagination li:eq(0)').attr("class", "disabled");
-   }
-    if (number<2){
-       $('ul.pagination li:eq(3)').attr("onclick","goTo("+(number+1)+")");
-   } else {
-       $('ul.pagination li:eq(3)').attr("class", "disabled");
-   }
-}*/
+ function upgradePreNext(number){
+        if (number>1){
+               $('ul.pagination li:eq(0)').attr("current", number-1);
+               $('ul.pagination li:eq(0)').attr("class", "previous");
+        } else {
+               $('ul.pagination li:eq(0)').attr("class", "disabled");
+        }
+       if (number<5){
+            $('ul.pagination li:eq(6)').attr("current",+number+1);
+            $('ul.pagination li:eq(6)').attr("class", "next");
+        } else {
+            $('ul.pagination li:eq(6)').attr("class", "disabled");
+        }
+}
 $(document).ready(function(){
     $('li.list a').on('click',function(e){
-        console.log("coucou");
         number=e.target.innerHTML;
+        upgradePreNext(number);
         goTo(number);
-        if(number > 1) {
-           $('ul.pagination li:eq(0)').attr("current",number-1);
-           $('ul.pagination li:eq(0)').attr("class", "previous");
-           $('ul.pagination li:eq(3)').attr("class", "disabled");
-        }  else {
-          $('ul.pagination li:eq(3)').attr("current",+number+1);
-          $('ul.pagination li:eq(3)').attr("class", "next");
-          $('ul.pagination li:eq(0)').attr("class", "disabled");
-        }
   });
 
   $('li.previous a').on('click',function(e){
         number = $('ul.pagination li:eq(0)').attr("current");
-        if(number > 1) {
-           $('ul.pagination li:eq(0)').attr("current",number-1);
-           $('ul.pagination li:eq(0)').attr("class", "previous");
-           $('ul.pagination li:eq(3)').attr("class", "disabled");
-        }  else {
-          $('ul.pagination li:eq(3)').attr("current",+number+1);
-          $('ul.pagination li:eq(3)').attr("class", "next");
-          $('ul.pagination li:eq(0)').attr("class", "disabled");
-        }
+        upgradePreNext(number);
         goTo(number);
   });
 
     $('li.next a').on('click',function(e){
-        number = $('ul.pagination li:eq(3)').attr("current");
-        if(number > 1) {
-           $('ul.pagination li:eq(0)').attr("current",number-1);
-           $('ul.pagination li:eq(0)').attr("class", "previous");
-           $('ul.pagination li:eq(3)').attr("class", "disabled");
-        }  else {
-          $('ul.pagination li:eq(3)').attr("current",+number+1);
-          $('ul.pagination li:eq(3)').attr("class", "next");
-          $('ul.pagination li:eq(0)').attr("class", "disabled");
-        }
+        number = $('ul.pagination li:eq(6)').attr("current");
+        upgradePreNext(number);
         goTo(number);
   });
 });
+
+function hoverLaborie(element) {
+    element.setAttribute('src', 'img/laborie_fun.jpg');
+}
+function unhoverLaborie(element) {
+    element.setAttribute('src', 'img/laborie.jpg');
+}
+
+function hoverLeslie(element) {
+    element.setAttribute('src', 'img/leslie_fun.jpg');
+}
+function unhoverLeslie(element) {
+    element.setAttribute('src', 'img/leslie.jpg');
+}
