@@ -173,8 +173,8 @@ function unhoverLeslie(element) {
 }
 
 function hoverConstanceTheo(element) {
-    element.setAttribute('src', 'img/constancetheo_fun.jpg');
+    element.setAttribute('src', 'img/constancetheo_fun.JPG');
 }
 function unhoverConstanceTheo(element) {
-    element.setAttribute('src', 'img/constancetheo.jpg');
+    element.setAttribute('src', 'img/constancetheo.JPG');
 }
