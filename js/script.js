@@ -185,3 +185,10 @@ function hoverMatthieu(element) {
 function unhoverMatthieu(element) {
     element.setAttribute('src', 'img/matthieu.jpg');
 }
+
+function hoverThomas(element) {
+    element.setAttribute('src', 'img/thomas_fun.jpg');
+}
+function unhoverThomas(element) {
+    element.setAttribute('src', 'img/thomas.jpg');
+}
